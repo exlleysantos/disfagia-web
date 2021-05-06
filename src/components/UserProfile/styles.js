@@ -75,12 +75,12 @@ export const Nickname = styled.span`
 export const Tag = styled.div`
 	font-size: 15px;
 	padding: 4px 16px;
-	background: var(--purple-opacity);
-	color: var(--purple);
+	background: var(--blue);
+	color: var(--white);
 	border-radius: 5px;
 `;
 
-export const SchoolName = styled.span`
+export const InstitutionName = styled.span`
 	font-size: 13px;
 	color: var(--body-1);
 `;

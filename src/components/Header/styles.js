@@ -19,11 +19,11 @@ export const Container = styled.header`
 export const Logo = styled.span`
 	font-size: 22px;
 	font-weight: 600;
-	color: var(--heading-1);
+	color: var(--navy);
 
 	& > span {
 		text-transform: uppercase;
-		color: var(--purple);
+		color: var(--navy);
 	}
 `;
 

@@ -4,7 +4,7 @@ import { RadioContainer, RadioGroup } from './styles';
 
 const Input = ({ checked, label, ...rest }) => {
 	return (
-		<RadioContainer checked={checked} {...rest}>
+		<RadioContainer {...rest}>
 			<div className='input'>
 				<div className='check'></div>
 			</div>

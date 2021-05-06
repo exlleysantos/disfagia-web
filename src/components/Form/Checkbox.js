@@ -8,6 +8,8 @@ import { CheckboxContainer, Error, collapseTheme, Switch } from './styles';
 
 import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 
+ 
+
 const Checkbox = ({ name, label, size, type = 'check', ...rest }) => {
 	const checkboxRef = useRef(null);
 	const { fieldName, defaultValue, registerField, error } = useField(name);

@@ -82,18 +82,18 @@ export const LinkItem = styled.span`
 	}
 
 	&:hover {
-		color: var(--purple);
+		color: var(--navy);
 
 		& > svg {
-			color: var(--purple) !important;
+			color: var(--navy) !important;
 		}
 	}
 
 	${({ active }) =>
 		active &&
 		css`
-			color: var(--purple);
-			background: var(--purple-opacity);
+			color: var(--navy);
+			background: var(--navy-opacity);
 		`}
 `;
 
@@ -108,13 +108,13 @@ export const Forum = styled.li`
 	padding: 8px 8px 8px 32px;
 
 	&:hover {
-		color: var(--purple);
+		color: var(--navy);
 	}
 
 	${({ active }) =>
 		active &&
 		css`
-			color: var(--purple);
+			color: var(--navy);
 		`}
 `;
 
@@ -134,7 +134,7 @@ export const ToggleMenu = styled.button`
 
 	&:hover {
 		& > svg {
-			color: var(--purple);
+			color: var(--navy);
 		}
 	}
 

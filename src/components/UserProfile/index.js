@@ -3,7 +3,7 @@ import Avatar from 'react-avatar';
 
 import Box from '../Box';
 import Button from '../Button';
-import { MainInfos, MobileFooter, Name, Nickname, Tag, SchoolName } from './styles';
+import { MainInfos, MobileFooter, Name, Nickname, Tag, InstitutionName } from './styles';
 
 import { HiOutlineChatAlt, HiOutlineMail } from 'react-icons/hi';
 
@@ -16,22 +16,18 @@ const UserProfile = ({ data }) => {
 				<div className='infos'>
 					<div className='row'>
 						<Name>{data.name}</Name>
-						<Tag>Prof. 5° ano</Tag>
+						<Tag>{data.type}</Tag>
 					</div>
 
 					<div className='row'>
-						<Nickname>@juliahoward</Nickname>
+						<Nickname>@{data.name}</Nickname>
 					</div>
-
 					<div className='row'>
-						<Button icon={HiOutlineChatAlt}>Mensagem</Button>
-						<Button icon={HiOutlineMail} isGhost>
-							Email
-						</Button>
+						<InstitutionName>Insituição</InstitutionName>
 					</div>
-
 					<div className='row'>
-						<SchoolName>Colégio Menino Deus</SchoolName>
+						<Button icon={HiOutlineMail}>Mensagem</Button>
+						
 					</div>
 				</div>
 			</MainInfos>

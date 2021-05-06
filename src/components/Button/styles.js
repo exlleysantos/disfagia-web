@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 export const Container = styled.button`
 	grid-column: span ${({ size }) => size || 1};
 	border-radius: 5px;
-	background-color: ${({ isGhost }) => (isGhost ? 'transparent' : 'var(--purple)')};
-	border: 1px solid var(--purple);
-	color: ${({ isGhost }) => (isGhost ? 'var(--purple)' : 'var(--white)')};
+	background-color: ${({ isGhost }) => (isGhost ? 'transparent' : 'var(--blue)')};
+	border: 1px solid var(--navy);
+	color: ${({ isGhost }) => (isGhost ? 'var(--blue)' : 'var(--white)')};
 	font-size: 16px;
 	height: 38px;
 	text-align: center;
@@ -23,7 +23,7 @@ export const Container = styled.button`
 	}
 
 	& > svg {
-		color: ${({ isGhost }) => (isGhost ? 'var(--purple)' : 'var(--white)')};
+		color: ${({ isGhost }) => (isGhost ? 'var(--navy)' : 'var(--white)')};
 		margin-right: 12px;
 		font-size: 22px;
 		min-width: 22px;
@@ -31,7 +31,7 @@ export const Container = styled.button`
 
 	&:hover {
 		background-color: ${({ isGhost }) =>
-			isGhost ? 'var(--purple-opacity)' : 'var(--purple-hover)'};
+			isGhost ? 'var(--navy)' : 'var(--navy)'};
 	}
 
 	${({ disabled }) =>

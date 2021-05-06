@@ -32,12 +32,12 @@ export const InputContainer = styled.div`
 		}
 
 		&:hover {
-			border-color: ${({ error }) => (error ? 'var(--red)' : 'var(--gray-2)')};
+			border-color: ${({ error }) => (error ? 'var(--red)' : 'var(--navy)')};
 		}
 	}
 
 	& .css-1pahdxg-control {
-		box-shadow: 0 0 0 ${({ error }) => (error ? 'var(--red)' : 'var(--purple)')} !important;
+		box-shadow: 0 0 0 ${({ error }) => (error ? 'var(--red)' : 'var(--navy)')} !important;
 	}
 
 	& > input,
@@ -63,8 +63,8 @@ export const InputContainer = styled.div`
 		}
 
 		&:focus {
-			border-color: ${({ error }) => (error ? 'var(--red)' : 'var(--purple)')};
-			box-shadow: 0px 0px 1px 1px ${({ error }) => (error ? 'var(--red)' : 'var(--purple)')};
+			border-color: ${({ error }) => (error ? 'var(--red)' : 'var(--navy)')};
+			box-shadow: 0px 0px 1px 1px ${({ error }) => (error ? 'var(--red)' : 'var(--navy)')};
 		}
 	}
 
@@ -110,10 +110,13 @@ export const InputContainer = styled.div`
 
 export const CheckboxContainer = styled.div`
 	grid-column: span ${({ size }) => size || 1};
+	display: inline-block;
+
 
 	& > div {
 		display: flex;
 		align-items: center;
+		vertical-align: middle;
 
 		& > input {
 			width: 0;
@@ -125,28 +128,13 @@ export const CheckboxContainer = styled.div`
 			position: relative;
 			cursor: pointer;
 			display: flex;
-			align-items: center;
-			justify-content: center;
+			align-items: left;
+			justify-content: start;
 
 			& > svg {
-				color: var(--purple);
+				color: var(--navy);
 				font-size: 20px;
-				z-index: 5;
-			}
-
-			&::after {
-				content: '';
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				width: 35px;
-				height: 35px;
-				transition: opacity 120ms;
-				opacity: 0;
-				border-radius: 100%;
-				background: var(--purple-opacity);
-				z-index: 1;
+				z-index: 0;
 			}
 
 			&:hover {
@@ -156,11 +144,12 @@ export const CheckboxContainer = styled.div`
 			}
 		}
 
-		& > label {
-			font-size: 15px;
-			margin-left: 8px;
+		& label {
+			font-size: 16px;
+			margin-left: 10px;
 			color: var(--heading-1);
 			font-weight: 500;
+			vertical-align: middle;
 		}
 	}
 `;
@@ -340,18 +329,19 @@ export const Error = styled.span`
 `;
 
 export const RadioContainer = styled.div`
-	margin-bottom: 12px;
+	margin-bottom: 8px;
 	display: flex;
 	align-items: center;
 	max-width: max-content;
 
 	&:hover {
 		& > div.input {
-			border-color: var(--purple);
+			border-color: var(--navy);
 		}
 
 		& > label {
-			color: var(--purple);
+			color: var(--navy);
+			font-size: 16px;
 		}
 	}
 
@@ -373,14 +363,14 @@ export const RadioContainer = styled.div`
 			min-width: 16px;
 			min-height: 16px;
 			display: ${({ checked }) => (checked ? 'block' : 'none')};
-			background: var(--purple);
+			background: var(--navy);
 			border-radius: 100%;
 		}
 	}
 
 	& > label {
 		cursor: pointer;
-		font-size: 14px;
+		font-size: 16px;
 		font-weight: 400;
 		color: var(--body-1);
 		margin-left: 8px;
@@ -395,7 +385,7 @@ export const RadioContainer = styled.div`
 `;
 export const RadioGroup = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	grid-column: span ${({ size }) => size || 1};
 
 	& > label {
