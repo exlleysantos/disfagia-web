@@ -5,9 +5,12 @@ const GlobalStyles = createGlobalStyle`
         /** colors */
         --purple: #8D45E8;
         --purple-opacity: rgba(141, 69, 232, 0.1);
+        --navy-opacity: rgba(0, 0, 50, 0.1);
         --purple-hover: #7c3ad0;
         --yellow: #FED14B;
-        --gree: #2EB672;
+        --green: #2EB672;
+        --blue: #0000FF;
+        --navy: #000080;
         --red: #E2574C;
         --white: #FFFFFF;
         --gray-1: #C4C4C4;
@@ -30,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
         outline: 0;
         box-sizing: border-box;
         list-style: none;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Rubik', sans-serif;
     }
 
     p, h1, h2, h3, h4 {

@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
 		storage.setItem('@USER', JSON.stringify(user));
 
 		setUser(user);
-		window.location.href = '/home';
+		window.location.href = '/profile';
 	};
 
 	const signOut = () => {
