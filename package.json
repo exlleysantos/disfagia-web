@@ -10,15 +10,20 @@
     "@unform/web": "^2.1.6",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
-    "react": "^16.13.1",
+    "react": "^17.0.2",
     "react-avatar": "^3.10.0",
     "react-bootstrap": "^1.2.2",
     "react-collapse": "^5.1.0",
     "react-dom": "^16.13.1",
     "react-icon": "^1.0.0",
-    "react-icons": "^3.10.0",
+    "react-icons": "^4.2.0",
+    "react-input-mask": "^2.0.4",
+    "react-loader-spinner": "^4.0.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-select": "^4.3.0",
+    "styled-components": "^5.2.3",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
