@@ -7,7 +7,7 @@ import { Container, BioInfos } from './styles';
 // import api from '../../services/api';
 
 const Profile = () => {
-	const [user] = useState({ name: 'Joca Doido' });
+	const [user] = useState({ name: 'Exlley Santos', type: 'Nutritionist'});
 
 	return (
 		<Container>
@@ -19,7 +19,7 @@ const Profile = () => {
 				<BioInfos>
 					<div>
 						<header>
-							<h3>Interesses</h3>
+							<h3>Especialização</h3>
 						</header>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit, in pellentesque
@@ -29,14 +29,7 @@ const Profile = () => {
 
 					<div>
 						<header>
-							<h3>Disciplinas que ministra</h3>
-						</header>
-						<p>Matemática e física.</p>
-					</div>
-
-					<div>
-						<header>
-							<h3>ORCID</h3>
+							<h3>Contato</h3>
 
 							<button>VER</button>
 						</header>

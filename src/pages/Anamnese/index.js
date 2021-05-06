@@ -1,26 +1,30 @@
 import React, { useState, useRef } from 'react';
 import * as Yup from 'yup';
 
-import { H1 } from '../../components/Typography';
+import { H1, H3 } from '../../components/Typography';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
-import { Form, Input, Select, TextArea, FileInput, MaskedInput } from '../../components/Form';
+import { Form, Input, Select, TextArea, FileInput, MaskedInput, Radio, Checkbox} from '../../components/Form';
 import { Container, FormContainer, Title, Subjects, Subject, AvatarText } from './styles';
+import { COMORBITIES, SEX, MARITAL_STATUS } from '../../utils/enums'
 
 import { GrFormAdd } from 'react-icons/gr';
 import { CgTrashEmpty } from 'react-icons/cg';
 import { useCallback } from 'react';
+import human from '../../assets/human-silhouette.svg'
+
 
 const options = [
-	{ value: 1, label: 'Ensino fundamental' },
-	{ value: 2, label: 'Ensino médio' },
-	{ value: 3, label: 'Ensino superior' },
+	{ value: 1, label: 'Permanente' },
+	{ value: 2, label: 'Prótese' },
+	{ value: 3, label: 'Ausente' },
 ];
 
-const Register = () => {
+const Anamnese = () => {
 	const formRef = useRef(null);
 
 	const [subjects, setSubjects] = useState([]);
+	const [radio, setRadio] = useState("1");
 	const [teachingDegree, setTeachingDegree] = useState(undefined);
 
 	const handleAddSubject = useCallback(() => {
@@ -44,9 +48,9 @@ const Register = () => {
 				console.log(formData);
 
 				const validationSchema = Yup.object().shape({
-					name: Yup.string().required('Informe seu nome'),
-					cpf: Yup.string().required('Informe seu SPF'),
-					birthDate: Yup.string().required('Informe sua data de nascimento'),
+					name: Yup.string().required('Informe o nome do paciente'),
+					cpf: Yup.string().required('Informe CPF do paciente'),
+					birthDate: Yup.string().required('Informe a data de nascimento'),
 					instituition: Yup.string().required('Campo obrigatório'),
 					teachingDegree: Yup.string().required('Campo obrigatório'),
 					tags: Yup.string().required('Campo obrigatório'),
@@ -89,64 +93,64 @@ const Register = () => {
 	return (
 		<Container>
 			<Title onClick={() => console.log(teachingDegree)}>
-				Pré-triagem de Paciente
+				Anamnese de Paciente
 			</Title>
 			<FormContainer>
-				<H1>Cadastro</H1>
-
 				<Form ref={formRef} onSubmit={handleSubmit}>
-					<section>
-						<h3>Dados pessoais</h3>
+					<h3>Dados pessoais</h3>
+						<section>
+							<Box>
+								<Input name='name' placeholder='Nome completo do paciente' size={2} />
+								
+								<MaskedInput
+									name='cpf'
+									placeholder='CPF'
+									mask='999.999.999-99'
+									size={1}
+								/>
+								<Input
+									name='birthDate'
+									placeholder='Nascimento'
+									type='date'
+									size={1}
+								/>
+								<Input name='name' placeholder='Endereço' size={2} />
+								<Input name='name' placeholder='Cidade - Estado' size={1} />
+								<Input name='name' placeholder='Ocupação' size={1} />
+								<Select
+									size={1}
+									name='sex'
+									placeholder='Sexo'
+									options={SEX}
+								/>
+								<Select
+									size={1}
+									name='maritalStatus'
+									placeholder='Estado Conjugal'
+									options={MARITAL_STATUS}
+								/>
+							</Box>
+						</section>
 
-						<Box>
-							<Input name='name' placeholder='Nome completo' size={2} />
-							<MaskedInput
-								name='cpf'
-								placeholder='CPF'
-								mask='999.999.999-99'
-								size={1}
-							/>
-							<Input
-								name='birthDate'
-								placeholder='Nascimento'
-								type='date'
-								size={1}
-							/>
-						</Box>
-					</section>
-
-					<section>
-						<h3>Observações</h3>
-
-						<Box>
+					<h3>Dados de Saúde</h3>
+						<section>
+							<Box>
+								<Select
+									size={3}
+									name='comorbities' 
+									placeholder='Doenças pré-existentes*'
+									options={COMORBITIES} 
+								/>
+								<AvatarText>*Se doença não presente na lista, informar no campo OBSERVAÇÕES</AvatarText>
+							</Box>
+						</section>
 							
-							<TextArea name='tags' rows={5} placeholder='Observações' size={2} />
-
-						</Box>
-					</section>
-
-					<section>
-						<h3>Outras Informações</h3>
-						<Box>
-							<AvatarText>
-								<h3>Arquivo adicional</h3>
-							</AvatarText>
-
-							<FileInput
-								label='Escolha ou solte um arquivo aqui'
-								name='avatar'
-								accept={['jpg', 'jpeg', 'png']}
-								overlayText='Foto de perfil'
-								size={2}
-							/>
-						</Box>
-					</section>
-
-					<Button size={4}>Cadastrar</Button>
+						
+					<Button size={4}>Finalizar Anamnese</Button>
 				</Form>
 			</FormContainer>
 		</Container>
 	);
 };
 
-export default Register;
+export default Anamnese;
