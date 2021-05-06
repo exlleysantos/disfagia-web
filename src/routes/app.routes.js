@@ -2,7 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
 
 import Profile from '../pages/Profile';
-import Educators from '../pages/Educators';
+import Patients from '../pages/Patients';
+import PreScreening from '../pages/PreScreening';
+import Anamnese from '../pages/Anamnese';
+
 import CreateActivity from '../pages/CreateActivity';
 import CreateCourse from '../pages/CreateCourse';
 import CreateForum from '../pages/CreateForum';
@@ -20,22 +23,29 @@ const AuthStack = () => {
 		<Router>
 			<Switch>
 				<Route exact path='/'>
-					<Redirect to='/home' />
+					<Redirect to='/profile' />
+				</Route>
+					<Route exact path='/speech-therapist/pre-triagem'>
+						<Layout> 
+							<PreScreening/>
+						</Layout>
 				</Route>
 
-				<Route exact path='/home'>
-					<h1>HOME</h1>
+				<Route exact path='/nurse/anamnese'>
+					<Layout>
+						<Anamnese/>
+					</Layout>
 				</Route>
-
+				
 				<Route exact path='/profile'>
 					<Layout>
 						<Profile />
 					</Layout>
 				</Route>
 
-				<Route exact path='/educators'>
+				<Route exact path='/patients'>
 					<Layout>
-						<Educators />
+						<Patients />
 					</Layout>
 				</Route>
 
