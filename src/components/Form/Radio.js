@@ -17,10 +17,12 @@ const Input = ({ checked, label, ...rest }) => {
 };
 
 const Group = ({ title, size, children, ...rest }) => {
+	const [value, setValue] = React.useState('1');
+
 	return (
 		<RadioGroup size={size}>
 			<label>{title}</label>
-			<div>{children}</div>
+			<div onClick={console.log(value)} onChange= {setValue} value={value}>{children}</div>
 		</RadioGroup>
 	);
 };

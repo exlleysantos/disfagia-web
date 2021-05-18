@@ -6,7 +6,7 @@ import Box from '../../components/Box';
 import Button from '../../components/Button';
 import { Form, Input, Select, TextArea, FileInput, MaskedInput, Radio, Checkbox} from '../../components/Form';
 import { Container, FormContainer, Title, Subjects, Subject, AvatarText } from './styles';
-import { PRE_SCREENING_ANSWERS, COMORBITIES } from '../../utils/enums'
+import { PRE_SCREENING_ANSWERS, EAT10 } from '../../utils/enums'
 
 import { GrFormAdd } from 'react-icons/gr';
 import { CgTrashEmpty } from 'react-icons/cg';
@@ -22,9 +22,9 @@ const PreScreening = () => {
 	const formRef = useRef(null);
 
 	const [subjects, setSubjects] = useState([]);
-	const [radio, setRadio] = useState("1");
-	const [teachingDegree, setTeachingDegree] = useState(undefined);
 
+	const [teachingDegree, setTeachingDegree] = useState(undefined);
+/*
 	const handleAddSubject = useCallback(() => {
 		const subject = formRef.current.getFieldValue('subjectName');
 
@@ -39,7 +39,7 @@ const PreScreening = () => {
 	const handleRemoveSubject = useCallback((removedIndex) => {
 		return setSubjects((subjects) => subjects.filter((_, index) => index !== removedIndex));
 	}, []);
-
+*/
 	const handleSubmit = useCallback(
 		async (formData) => {
 			try {
@@ -115,15 +115,6 @@ const PreScreening = () => {
 							</Box>
 						</section>
 
-						<section>
-							<Box>
-								<Select 
-									name='comorbities' 
-									options={COMORBITIES}
-								/>
-							</Box>
-						</section>
-
 						<h3>Pré-triagem</h3>
 						
 						<section>
@@ -167,28 +158,31 @@ const PreScreening = () => {
 
 						<h3>Escala EAT-10</h3>
 						<section>
-
+							<AvatarText size={1}>
+								Selecione na escala de 1 a 5, na qual 1 é pra auseência e 5 
+								a presença do sintoma.
+							</AvatarText>
+						
 							<Box>
-								<Input
-									id='1'
-									name='question1' 
-									type='radio'
-									label='1' 
-								/>
-								<Input
-									id='1'
-									name='question1' 
-									type='radio'
-									label='1' 
-								/>
-								<Input
-									id='1'
-									name='question1' 
-									type='radio'
-									label='1' 
-								/>
+								{EAT10.map((QUEST) => (
+									<Radio.Group title={QUEST.question} size={2} >
+										<Radio.Input value='1' name='eat-10' label='1'/>
+										<Radio.Input value='2' name='eat-10' label='2'/>
+										<Radio.Input value='3' name='eat-10' label='3'/>
+										<Radio.Input value='4' name='eat-10' label='4'/>
+										<Radio.Input value='5' name='eat-10' label='5'/>
+									</Radio.Group>
+								))}
 							</Box>
 						</section>
+
+						<h3>Observações</h3>
+						<section>
+							<Box>
+								<TextArea size ={2} name='observations' placeholder='Observações' />
+							</Box>
+						</section>
+							
 					<Button size={4}>Finalizar pré-triagem</Button>
 				</Form>
 			</FormContainer>

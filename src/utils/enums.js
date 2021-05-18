@@ -1,5 +1,3 @@
-import { MdAddAlert } from "react-icons/md";
-
 export const STATES = [
 	{ initials: 'AC' },
 	{ initials: 'AL' },
@@ -75,10 +73,24 @@ export const MARITAL_STATUS = [
 	{value : '5', label : 'Outro'}
 ]
 
+export const EAT10 = [
+	{label : 1, question: '1. Meu problema para engolir me faz perder peso '},
+	{label : 1, question: '2. Meu problema para engolir não me deixa comer fora de casa'},
+	{label : 1, question: '3. Preciso fazer força para beber líquidos'},
+	{label : 1, question: '4. Preciso fazer força para engolir comida (sólida)'},
+	{label : 1, question: '5. Preciso fazer força para engolir remédios'},
+	{label : 1, question: '6. Dói para engolir'},
+	{label : 1, question: '7. O meu problema para engolir me tira o prazer de comer'},
+	{label : 1, question: '8. Fico com comida presa/entalada na garganta '},
+	{label : 1, question: '9. Eu tusso quando como'},
+	{label : 1, question: '10. Engolir me deixa estressado (a)'},
+]
+
 
 export default {
 	STATES, 
 	PRE_SCREENING_ANSWERS, 
 	COMORBITIES,
-	MARITAL_STATUS
+	MARITAL_STATUS,
+	EAT10
 };

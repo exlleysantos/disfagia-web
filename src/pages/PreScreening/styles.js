@@ -150,7 +150,7 @@ export const Title = styled.h1`
 
 export const AvatarText = styled.div`
 	grid-column: span 2;
-	margin-top: 12px;
+	margin-top: 5px;
 
 	& > h3 {
 		font-size: 17px;

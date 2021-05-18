@@ -384,20 +384,23 @@ export const RadioContainer = styled.div`
 	}
 `;
 export const RadioGroup = styled.div`
-	display: flex;
-	flex-direction: row;
 	grid-column: span ${({ size }) => size || 1};
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 4px;
 
 	& > label {
-		font-size: 18px;
+		font-size: 16px;
 		color: var(--heading-1);
 		font-weight: 500;
-		margin-bottom: 4px;
+		margin-bottom: 8px;
+		align: center;
 	}
 
 	& > div {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		
 	}
 `;
 

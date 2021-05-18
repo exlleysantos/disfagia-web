@@ -16,21 +16,21 @@ import {
 } from './styles';
 
 import { CgProfile } from 'react-icons/cg';
-import { AiOutlinePlayCircle, AiOutlineLogout, AiOutlineClose } from 'react-icons/ai';
-import { HiOutlineChatAlt } from 'react-icons/hi';
+import { AiOutlineLogout, AiOutlineClose } from 'react-icons/ai';
+//import { HiOutlineChatAlt } from 'react-icons/hi';
 import { HiOutlineUserGroup } from 'react-icons/hi'
-import {AiFillReconciliation} from 'react-icons/ai'
+//import {AiFillReconciliation} from 'react-icons/ai'
 import { GiMedicalPackAlt } from 'react-icons/gi'
-import { FiShare2 } from 'react-icons/fi';
+//import { FiShare2 } from 'react-icons/fi';
 import { BiChevronDown } from 'react-icons/bi';
-import userEvent from '@testing-library/user-event';
+//import userEvent from '@testing-library/user-event';
 
-const Navigation = ({user }, { showMenu, handleCloseMenu }) => {
+const Navigation = ({ user }, { showMenu, handleCloseMenu }) => {
 	user = {
 		name: 'Exlley Santos',
-		//type :'nutritionist'
-		//type : 'speech_therapist'
-		type : 'nurse'
+		type :'nutritionist'
+	//	type : 'speech_therapist'
+		//type : 'nurse'
 	}
 	const { pathname } = useLocation();
 
@@ -88,8 +88,8 @@ const Navigation = ({user }, { showMenu, handleCloseMenu }) => {
 							<Link to={{ pathname: '/nutritionist/pre-triagem', state: { from: pathname } }}>
 								<Forum>Pré-Triagem</Forum>
 							</Link>
-							<Link to={{ pathname: 'nutritionist/eating-plan', state: { from: pathname } }}>
-								<Forum>Plano Alimentar</Forum>
+							<Link to={{ pathname: 'nutritionist/eating-orientation', state: { from: pathname } }}>
+								<Forum>Orientação Nutricional</Forum>
 							</Link>
 							<Link to={{ pathname: 'nutritionist/nutritional-risk-screening', state: { from: pathname } }}>
 								<Forum>Avaliação de Risco Nutricional</Forum>
@@ -128,7 +128,7 @@ const Navigation = ({user }, { showMenu, handleCloseMenu }) => {
 						</LinkItem>
 					</Link>
 
-					<Link to={{ pathname: '/educators', state: { from: pathname } }}>
+					<Link to={{ pathname: '/patients', state: { from: pathname } }}>
 						<LinkItem active={pathname.includes('educator')}>
 							<HiOutlineUserGroup/> Meus Pacientes
 						</LinkItem>
@@ -185,7 +185,7 @@ const Navigation = ({user }, { showMenu, handleCloseMenu }) => {
 						</LinkItem>
 					</Link>
 
-					<Link to={{ pathname: '/educators', state: { from: pathname } }}>
+					<Link to={{ pathname: '/patients', state: { from: pathname } }}>
 						<LinkItem active={pathname.includes('educator')}>
 							<HiOutlineUserGroup/> Meus Pacientes
 						</LinkItem>

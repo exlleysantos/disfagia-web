@@ -1,24 +1,16 @@
 import React, { useState, useRef } from 'react';
 import * as Yup from 'yup';
 
-import { H1, H3 } from '../../components/Typography';
+//import { H1, H3 } from '../../components/Typography';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
 import { Form, Input, Select, TextArea, FileInput, MaskedInput, Radio, Checkbox} from '../../components/Form';
 import { Container, FormContainer, Title, Subjects, Subject, AvatarText } from './styles';
 import { COMORBITIES, SEX, MARITAL_STATUS } from '../../utils/enums'
 
-import { GrFormAdd } from 'react-icons/gr';
-import { CgTrashEmpty } from 'react-icons/cg';
+//import { GrFormAdd } from 'react-icons/gr';
+//import { CgTrashEmpty } from 'react-icons/cg';
 import { useCallback } from 'react';
-import human from '../../assets/human-silhouette.svg'
-
-
-const options = [
-	{ value: 1, label: 'Permanente' },
-	{ value: 2, label: 'Prótese' },
-	{ value: 3, label: 'Ausente' },
-];
 
 const Anamnese = () => {
 	const formRef = useRef(null);
@@ -144,8 +136,7 @@ const Anamnese = () => {
 								<AvatarText>*Se doença não presente na lista, informar no campo OBSERVAÇÕES</AvatarText>
 							</Box>
 						</section>
-							
-						
+											
 					<Button size={4}>Finalizar Anamnese</Button>
 				</Form>
 			</FormContainer>
