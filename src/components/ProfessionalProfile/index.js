@@ -11,16 +11,16 @@ const UserProfile = ({ data }) => {
 	return (
 		<Box>
 			<MainInfos>
-				<Avatar size={150} name={data.fullname} round='5px' maxInitials={2} />
+				<Avatar size={150} name={data.name} round='5px' maxInitials={2} />
 
 				<div className='infos'>
 					<div className='row'>
-						<Name>{data.fullname}</Name>
+						<Name>{data.name}</Name>
 						<Tag>{data.type === 'patient' ? 'Paciente' : 'Profissional de Saúde'}</Tag>
 					</div>
 
 					<div className='row'>
-						<Nickname>@{data.fullname}</Nickname>
+						<Nickname>@{data.name}</Nickname>
 					</div>
 					<div className='row'>
 						<InstitutionName>Insituição</InstitutionName>

@@ -1,15 +1,16 @@
 import React, { useState, useRef } from 'react';
 import * as Yup from 'yup';
 
-import { H1, H3 } from '../../components/Typography';
+import { H3 } from '../../components/Typography';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
-import { Form, Input, Select, TextArea, FileInput, MaskedInput, Radio, Checkbox} from '../../components/Form';
-import { Container, FormContainer, Title, Subjects, Subject, AvatarText } from './styles';
+import { Form, Input, TextArea, MaskedInput, Radio, Checkbox} from '../../components/Form';
+import { Container, FormContainer, Title, AvatarText } from './styles';
 import { PRE_SCREENING_ANSWERS, EAT10 } from '../../utils/enums'
-
+/*
 import { GrFormAdd } from 'react-icons/gr';
 import { CgTrashEmpty } from 'react-icons/cg';
+*/
 import { useCallback } from 'react';
 
 const options = [

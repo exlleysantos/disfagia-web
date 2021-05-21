@@ -22,7 +22,7 @@ export const SubtitleContainer = styled.div`
 	}
 `;
 
-export const EducatorsList = styled.ul`
+export const PatientsList = styled.ul`
 	width: 100%;
 
 	& > li ~ li {

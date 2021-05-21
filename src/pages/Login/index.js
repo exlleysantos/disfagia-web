@@ -37,7 +37,7 @@ const Login = () => {
 
 				if (authToken) {
 					const headers = { authorization: `Bearer ${authToken}` };
-					const response = await api.get('/sessions', {
+					const response = await api.get('/login', {
 						headers,
 					});
 					console.log(headers);
@@ -45,7 +45,7 @@ const Login = () => {
 					const isAuthenticated = response.status === 200 ? true : false;
 
 					if (isAuthenticated) {
-						return (window.location = '/profiles');
+						return (window.location = '/profile');
 					}
 				}
 			} catch (error) {
@@ -63,17 +63,17 @@ const Login = () => {
 			console.log("Evento:", e);
 
 			const payload = { email, password };
-			
+			console.log(payload)
 			const validationSchema = Yup.object().shape({
-				email: Yup.string().required('Informe um E-mail'),
+				email: Yup.string().required('Informe o nome de usuário'),
 				password: Yup.string().required('Informe uma senha'),
 			});
 			
 			await validationSchema.validate(payload);
 			formRef.current.setErrors({});
 			
-			const { data } = await api.post('/sessions', payload);
-			signIn(data.user, data.token.token, true);
+			const { data } = await api.post('/login', payload);
+			signIn(data.healthcareProfessional, data.token.token, true);
 
 		} catch (error) {
 			if (error instanceof Yup.ValidationError) {
@@ -87,7 +87,7 @@ const Login = () => {
 				case 401:
 					return alert('Senha incorreta');
 				default:
-					return alert('Erro de servidor');
+					return alert(error.response.message, 'Erro de servidor');
 			}
 		}
 	};
@@ -105,7 +105,7 @@ const Login = () => {
 				</Welcome>
 
 				<Form ref= {formRef} onSubmit={handleLogin}>
-					<Input name='email' placeholder='Email'type= 'email' size={4} value={email} onChange={(e) => setEmail(e.target.value)} />
+					<Input name='email' placeholder='Nome de Usuário'type= 'email' size={4} value={email} onChange={(e) => setEmail(e.target.value)} />
 					<Input name='password' placeholder='Senha' type='password' size={4} value={password} onChange={(e) => setPassword(e.target.value)}/>
 					<Select
 								name='teachingDegree'

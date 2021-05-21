@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 
-import UserProfile from '../../components/UserProfile';
+import ProfessionalProfile from '../../components/ProfessionalProfile';
 import Box from '../../components/Box';
 import { Container, BioInfos } from './styles';
 
 // import api from '../../services/api';
 
 const Profile = () => {
-	const [user] = useState({ name: 'Exlley Santos', type: 'Nutritionist'});
-
+	const userData = localStorage.getItem('@USER');
+	const user = JSON.parse(userData);
+	console.log(user)
 	return (
 		<Container>
 			<Box>
-				<UserProfile data={user} />
+				<ProfessionalProfile data={user} />
 			</Box>
 
 			<Box>
@@ -22,8 +23,7 @@ const Profile = () => {
 							<h3>Especialização</h3>
 						</header>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, in pellentesque
-							tempus felis, sociis elit, euismod enim, tincidunt duis.
+							{(user.specialty_id === 1) ? "Nutricionista" : "Fonoaudiologo"}
 						</p>
 					</div>
 

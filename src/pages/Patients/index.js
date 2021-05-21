@@ -1,20 +1,29 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect} from 'react';
 
 import UserProfile from '../../components/UserProfile';
 import Button from '../../components/Button';
 import { Form, Input } from '../../components/Form';
 import { H1, } from '../../components/Typography';
-import { Container, EducatorsList } from './styles';
+import { Container, PatientsList } from './styles';
 
-const Educators = () => {
+import api from '../../services/api';
+
+const Patients = () => {
 	const searchRef = useRef(null);
+	const [patients, setPatients] = useState([]);
+	console.log("Só Algo")
+	
+	useEffect(() => {
+		let userData = JSON.parse(localStorage.getItem('@USER'));
 
-	const [patients] = useState([
-		{ name: 'Andre Matos', type: 'patient'},
-		{ name: 'James Hetfield', type: 'patient' },
-		{ name: 'John Lennon', type: 'patient'},
-		{ name: 'Maria Duarte', type: 'patient' },
-	]);
+        api.get(`/healthcare-professionals/${userData.id}`, {
+            headers: {
+                Authorization: userData.id,
+            }
+        }).then(response => {
+			setPatients(response.data.patients);
+        })
+	}, );
 
 	return (
 		<Container>
@@ -25,18 +34,18 @@ const Educators = () => {
 					name='search'
 					placeholder='Busque um paciente'
 				/>
-				<Button >Buscar</Button>
+				<Button>Buscar</Button>
 			</Form>
 
-			<EducatorsList>
+			<PatientsList>
 				{patients.map((patient) => (
-					<li key={patient.name}>
+					<li key={patient.id}>
 						<UserProfile data={patient} />
 					</li>
 				))}
-			</EducatorsList>
+			</PatientsList>
 		</Container>
 	);
 };
 
-export default Educators;
+export default Patients;

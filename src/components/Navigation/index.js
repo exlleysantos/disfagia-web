@@ -25,13 +25,10 @@ import { GiMedicalPackAlt } from 'react-icons/gi'
 import { BiChevronDown } from 'react-icons/bi';
 //import userEvent from '@testing-library/user-event';
 
-const Navigation = ({ user }, { showMenu, handleCloseMenu }) => {
-	user = {
-		name: 'Exlley Santos',
-		type :'nutritionist'
-	//	type : 'speech_therapist'
-		//type : 'nurse'
-	}
+const Navigation = ({ showMenu, handleCloseMenu }) => {
+	const userData = localStorage.getItem('@USER');
+	const user = JSON.parse(userData);
+
 	const { pathname } = useLocation();
 
 	const [showOverlay, setShowOverlay] = useState(false);
@@ -48,7 +45,7 @@ const Navigation = ({ user }, { showMenu, handleCloseMenu }) => {
 
 		setShowOverlay(false);
 	}, [showMenu]);
-	if(user.type === 'nutritionist')
+	if(user.specialty_id === 1)
 	return (
 		<>
 			<Container show={showMenu}>
@@ -105,7 +102,7 @@ const Navigation = ({ user }, { showMenu, handleCloseMenu }) => {
 			<Overlay visible={showOverlay} onClick={handleCloseMenu} />
 		</>
 	);
-	if(user.type === 'speech_therapist')
+	if(user.specialty_id === 2)
 	return (
 		<>
 			<Container show={showMenu}>
@@ -162,7 +159,7 @@ const Navigation = ({ user }, { showMenu, handleCloseMenu }) => {
 			<Overlay visible={showOverlay} onClick={handleCloseMenu} />
 		</>
 	);
-	if(user.type === 'nurse')
+	if(user.specialty_id === 3)
 	return (
 		<>
 			<Container show={showMenu}>
