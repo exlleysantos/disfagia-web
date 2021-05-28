@@ -14,7 +14,7 @@ export const Container = styled.div`
 		font-size: 160px;
 		font-weight: 500;
 		margin-bottom: 12px;
-		color: var(--purple);
+		color: var(--green-forest);
 	}
 
 	& > p {

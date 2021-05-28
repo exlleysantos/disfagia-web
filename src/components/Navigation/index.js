@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Avatar from 'react-avatar';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { Collapse } from 'react-collapse';
 
 import {
@@ -28,6 +28,7 @@ import { BiChevronDown } from 'react-icons/bi';
 const Navigation = ({ showMenu, handleCloseMenu }) => {
 	const userData = localStorage.getItem('@USER');
 	const user = JSON.parse(userData);
+	const history = useHistory();
 
 	const { pathname } = useLocation();
 
@@ -35,6 +36,12 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 	const [showForums, setShowForums] = useState(() => {
 		return pathname.includes('medical') ? true : false;
 	});
+
+	function handleLogout(){
+        localStorage.clear();
+        history.push('/login');
+		history.go(0);
+    }
 
 	useEffect(() => {
 		if (showMenu) {
@@ -85,15 +92,18 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 							<Link to={{ pathname: '/nutritionist/pre-triagem', state: { from: pathname } }}>
 								<Forum>Pré-Triagem</Forum>
 							</Link>
+							<Link to={{ pathname: 'nutritionist/subjective-nutritional-assessment', state: { from: pathname } }}>
+								<Forum>Avaliação Nutricional Subjetiva</Forum>
+							</Link>
 							<Link to={{ pathname: 'nutritionist/eating-orientation', state: { from: pathname } }}>
 								<Forum>Orientação Nutricional</Forum>
 							</Link>
-							<Link to={{ pathname: 'nutritionist/nutritional-risk-screening', state: { from: pathname } }}>
-								<Forum>Avaliação de Risco Nutricional</Forum>
+							<Link to={{pathname: 'nutritionist/measurement-techniques', state: {from: pathname}}}>
+								<Forum>Técnicas de Aferição</Forum>
 							</Link>
 						</Forums>
 					</Collapse>
-					<LinkItem>
+					<LinkItem onClick={() => handleLogout()}>
 						<AiOutlineLogout /> Sair
 					</LinkItem>
 				</Menu>
@@ -150,7 +160,7 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 							</Link>
 						</Forums>
 					</Collapse>
-					<LinkItem>
+					<LinkItem onClick={() => handleLogout()}>
 						<AiOutlineLogout /> Sair
 					</LinkItem>
 				</Menu>
@@ -201,7 +211,7 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 							</Link>
 						</Forums>
 					</Collapse>
-					<LinkItem>
+					<LinkItem onClick={() => handleLogout()}>
 						<AiOutlineLogout /> Sair
 					</LinkItem>
 				</Menu>

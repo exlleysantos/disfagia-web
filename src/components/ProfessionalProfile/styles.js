@@ -75,8 +75,8 @@ export const Nickname = styled.span`
 export const Tag = styled.div`
 	font-size: 15px;
 	padding: 4px 16px;
-	background: var(--blue);
-	color: var(--white);
+	background: var(--green-marine);
+	color: var(--green-forest);
 	border-radius: 5px;
 `;
 

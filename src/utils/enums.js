@@ -86,6 +86,52 @@ export const EAT10 = [
 	{label : 1, question: '10. Engolir me deixa estressado (a)'},
 ]
 
+export const AFERITION = [
+	{title: "Peso (LOHMAN et al., 1988)",
+	image : 'http://4.bp.blogspot.com/-jypRFKh8BeY/T_DCWRizaxI/AAAAAAAAAK8/GNzgBwFdIk4/s1600/Medindo.PNG', 
+	text: ["1. Número de vezes a realizar a medida: duas" , 
+	"2. Equipamento: balança eletrônica;", 
+	"3. Técnica: Instalar a balança em superfície plana, firme e lisa e afastada da parede. Ligar a balança antes de o avaliado ser colocado sobre ela;",
+	"4. Colocar o avaliado no centro do equipamento, com o mínimo de roupa possível, descalço, ereto, pés juntos e braços estendidos ao longo do corpo. Mantê-lo parado nesta posição;",
+	"5. Realizar a leitura após o valor do peso estar fixado no visor.", 
+	"6. Registre o valor mostrado no visor, imediatamente, sem arredondamentos (ex: 75,2 kg)"]},
+	
+	{title: "Altura (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+
+	{title: "Altura do joelho (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+
+	{title: "Envergadura do braço (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+
+	{title: "Circunferência da cintura (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+
+	{title: "Circunferência do quadril (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+
+	{title: "Circunferência abdominal (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+
+	{title: "Circunferência do braço (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+
+	{title: "Circunferência da panturrilha (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+
+	{title: "Dobras cutâneas (LOHMAN et al., 1988)",
+	image: "",
+	text: []},
+]
 
 export default {
 	STATES, 

@@ -14,7 +14,9 @@ const AuthStack = () => {
 				<Route exact path='/'>
 					<Login />
 				</Route>
-
+				<Route exact path='/login'>
+					<Login />
+				</Route>
 				<Route exact path='/register'>
 					<Register />
 				</Route>

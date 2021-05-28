@@ -32,12 +32,12 @@ export const InputContainer = styled.div`
 		}
 
 		&:hover {
-			border-color: ${({ error }) => (error ? 'var(--red)' : 'var(--navy)')};
+			border-color: ${({ error }) => (error ? 'var(--red)' : 'var(--green-shrub)')};
 		}
 	}
 
 	& .css-1pahdxg-control {
-		box-shadow: 0 0 0 ${({ error }) => (error ? 'var(--red)' : 'var(--navy)')} !important;
+		box-shadow: 0 0 0 ${({ error }) => (error ? 'var(--red)' : 'var(--green-shrub)')} !important;
 	}
 
 	& > input,
@@ -63,8 +63,8 @@ export const InputContainer = styled.div`
 		}
 
 		&:focus {
-			border-color: ${({ error }) => (error ? 'var(--red)' : 'var(--navy)')};
-			box-shadow: 0px 0px 1px 1px ${({ error }) => (error ? 'var(--red)' : 'var(--navy)')};
+			border-color: ${({ error }) => (error ? 'var(--red)' : 'var(--green-shrub)')};
+			box-shadow: 0px 0px 1px 1px ${({ error }) => (error ? 'var(--red)' : 'var(--green-shrub)')};
 		}
 	}
 
@@ -132,7 +132,7 @@ export const CheckboxContainer = styled.div`
 			justify-content: start;
 
 			& > svg {
-				color: var(--navy);
+				color: var(--green-shrub);
 				font-size: 20px;
 				z-index: 0;
 			}
@@ -159,11 +159,11 @@ export const Switch = styled.div`
 	height: 26px;
 	border-width: 1px;
 	border-style: solid;
-	border-color: ${({ checked }) => (checked ? 'var(--purple)' : 'var(--gray-2)')};
+	border-color: ${({ checked }) => (checked ? 'var(--green-shrub)' : 'var(--gray-2)')};
 	border-radius: var(--border-radius-3);
 	position: relative;
 	cursor: pointer;
-	background: ${({ checked }) => (checked ? 'var(--purple)' : 'var(--gray-2)')};
+	background: ${({ checked }) => (checked ? 'var(--green-shrub)' : 'var(--gray-2)')};
 
 	${({ checked }) =>
 		checked &&
@@ -221,7 +221,7 @@ export const FileInputContainer = styled.div`
 	transition: 300ms;
 
 	&:hover {
-		/* background: ${({ error }) => (error ? 'var(--red)' : 'var(--purple)')}; */
+		/* background: ${({ error }) => (error ? 'var(--red)' : 'var(--green-shrub)')}; */
 	}
 
 	& > svg {
@@ -255,7 +255,7 @@ export const FileInputContainer = styled.div`
 		}
 
 		&:focus {
-			background: ${({ error }) => (error ? 'var(--red)' : 'var(--purple)')};
+			background: ${({ error }) => (error ? 'var(--red)' : 'var(--green-shrub)')};
 		}
 	}
 
@@ -336,11 +336,11 @@ export const RadioContainer = styled.div`
 
 	&:hover {
 		& > div.input {
-			border-color: var(--navy);
+			border-color: var(--green-shrub);
 		}
 
 		& > label {
-			color: var(--navy);
+			color: var(--green-shrub);
 			font-size: 16px;
 		}
 	}
@@ -363,7 +363,7 @@ export const RadioContainer = styled.div`
 			min-width: 16px;
 			min-height: 16px;
 			display: ${({ checked }) => (checked ? 'block' : 'none')};
-			background: var(--navy);
+			background: var(--green-shrub);
 			border-radius: 100%;
 		}
 	}
@@ -399,7 +399,7 @@ export const RadioGroup = styled.div`
 
 	& > div {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		
 	}
 `;

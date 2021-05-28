@@ -24,7 +24,7 @@ const Login = () => {
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [userType, setUserType] = useState('');
+	const [specialty_id, setSpecialtyId] = useState('');
 
 	useEffect(() => {
 		/** useEffect usado para verificar se o usuário já esta autenticado.
@@ -63,16 +63,16 @@ const Login = () => {
 			console.log("Evento:", e);
 
 			const payload = { email, password };
-			console.log(payload)
 			const validationSchema = Yup.object().shape({
 				email: Yup.string().required('Informe o nome de usuário'),
 				password: Yup.string().required('Informe uma senha'),
 			});
-			
+		
 			await validationSchema.validate(payload);
 			formRef.current.setErrors({});
 			
 			const { data } = await api.post('/login', payload);
+			data.healthcareProfessional.specialty_id = specialty_id;
 			signIn(data.healthcareProfessional, data.token.token, true);
 
 		} catch (error) {
@@ -108,17 +108,14 @@ const Login = () => {
 					<Input name='email' placeholder='Nome de Usuário'type= 'email' size={4} value={email} onChange={(e) => setEmail(e.target.value)} />
 					<Input name='password' placeholder='Senha' type='password' size={4} value={password} onChange={(e) => setPassword(e.target.value)}/>
 					<Select
-								name='teachingDegree'
+								name='specialty_id'
 								options={options}
-								onChange={({ value }) => setUserType(value)}
+								onChange={({ value }) => setSpecialtyId(value)}
 								placeholder='Quem é você?'
 								size={2}
 					/>
 					<Button size={4}>Entrar</Button>
-					<Button size={4}>Cadastrar-se</Button>
 				</Form>	
-					<hr />
-					<Link to="/register">Remove</Link>
 			</FormContainer>
 		</Container>
 	);

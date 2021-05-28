@@ -16,6 +16,11 @@ const GlobalStyles = createGlobalStyle`
         --gray-1: #C4C4C4;
         --gray-2: #303030;
         --gray-3: #D0C9D6;
+
+        --green-forest: #015249;
+        --green-shrub: #0E8044;
+        --green-marine: #B4DBC0;
+        --green-feather: #77C9D4;
         
         /** typography */
         --heading-1: #303030;

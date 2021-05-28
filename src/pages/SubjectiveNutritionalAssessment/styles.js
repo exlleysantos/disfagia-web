@@ -144,7 +144,7 @@ export const Title = styled.h1`
 	width: 100%;
 
 	& > span {
-		color: var(--green-forest);
+		color: var(--purple);
 	}
 `;
 

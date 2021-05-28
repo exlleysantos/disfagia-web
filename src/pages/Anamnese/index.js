@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as Yup from 'yup';
 
 //import { H1, H3 } from '../../components/Typography';
@@ -8,16 +8,18 @@ import { Form, Input, Select, TextArea, FileInput, MaskedInput, Radio, Checkbox}
 import { Container, FormContainer, Title, Subjects, Subject, AvatarText } from './styles';
 import { COMORBITIES, SEX, MARITAL_STATUS } from '../../utils/enums'
 
-//import { GrFormAdd } from 'react-icons/gr';
-//import { CgTrashEmpty } from 'react-icons/cg';
+import { GrFormAdd } from 'react-icons/gr';
+import { CgTrashEmpty } from 'react-icons/cg';
 import { useCallback } from 'react';
+
+import api from '../../services/api';
 
 const Anamnese = () => {
 	const formRef = useRef(null);
 
 	const [subjects, setSubjects] = useState([]);
-	const [radio, setRadio] = useState("1");
 	const [teachingDegree, setTeachingDegree] = useState(undefined);
+	
 
 	const handleAddSubject = useCallback(() => {
 		const subject = formRef.current.getFieldValue('subjectName');
@@ -127,13 +129,40 @@ const Anamnese = () => {
 					<h3>Dados de Saúde</h3>
 						<section>
 							<Box>
-								<Select
-									size={3}
-									name='comorbities' 
-									placeholder='Doenças pré-existentes*'
-									options={COMORBITIES} 
-								/>
 								<AvatarText>*Se doença não presente na lista, informar no campo OBSERVAÇÕES</AvatarText>
+									<Subjects>
+									<h3>Doenças Pré-existentes</h3>
+
+									<Select name='subjectName' 
+											placeholder='Doenças Pré-existentes' 
+											options={COMORBITIES} 
+									/>
+
+									<Button type='button' isGhost onClick={handleAddSubject}>
+										<GrFormAdd />
+									</Button>
+
+									<ul>
+										{subjects.length ? (
+											subjects.map((subject, index) => (
+												<Subject key={index}>
+													{console.log(subject)}
+													<span>{subject}</span>
+													{console.log("subject", subject)}
+													<Button
+														type='button'
+														onClick={() => handleRemoveSubject(index)}>
+														<CgTrashEmpty />
+													</Button>
+												</Subject>
+											))
+										) : (
+											<li className='empty'>
+												Sem doenças pré-existentes adicionadas
+											</li>
+										)}
+									</ul>
+								</Subjects>
 							</Box>
 						</section>
 											

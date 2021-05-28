@@ -5,38 +5,23 @@ import Profile from '../pages/Profile';
 import Patients from '../pages/Patients';
 import PreScreening from '../pages/PreScreening';
 import Anamnese from '../pages/Anamnese';
-
-import CreateActivity from '../pages/CreateActivity';
-import CreateCourse from '../pages/CreateCourse';
-import CreateForum from '../pages/CreateForum';
-import Forums from '../pages/Forums';
-import ShareOptions from '../pages/ShareOptions';
-import ShareLinks from '../pages/ShareLinks';
-import ShareDocs from '../pages/ShareDocs';
-import ShareClass from '../pages/ShareClass';
+import Notify from '../pages/Notify';
 import Error404 from '../pages/404';
-
+import SubjectiveNutritionalAssessment from '../pages/SubjectiveNutritionalAssessment';
+import ProfilePatient from '../pages/ProfilePatient'
 import Layout from '../components/Layout';
+import MeasurementTechniques from '../pages/MeasurementTechniques';
+import Register from '../pages/Register';
 
 const AuthStack = () => {
 	return (
 		<Router>
 			<Switch>
+
 				<Route exact path='/'>
 					<Redirect to='/profile' />
 				</Route>
-					<Route exact path='/speech-therapist/pre-triagem'>
-						<Layout> 
-							<PreScreening/>
-						</Layout>
-				</Route>
 
-				<Route exact path='/nurse/anamnese'>
-					<Layout>
-						<Anamnese/>
-					</Layout>
-				</Route>
-				
 				<Route exact path='/profile'>
 					<Layout>
 						<Profile />
@@ -48,54 +33,49 @@ const AuthStack = () => {
 						<Patients />
 					</Layout>
 				</Route>
-
-				<Route exact path='/create-activity'>
+				
+				<Route exact path='/patient-profile'>
+					<ProfilePatient/>
+				</Route>
+				<Route exact path='/patients/notify'>
 					<Layout>
-						<CreateActivity />
+						<Notify/>
+					</Layout>
+				</Route>
+				<Route exact path='/patients/anamnese'>
+					<Layout>
+						<Register/>
+					</Layout>
+				</Route>
+				<Route exact path='/patients/new'>
+					<Layout>
+						<Anamnese/>
 					</Layout>
 				</Route>
 
-				<Route exact path='/create-course'>
+				<Route exact path ='/nutritionist/subjective-nutritional-assessment'>
 					<Layout>
-						<CreateCourse />
+						<SubjectiveNutritionalAssessment/>
+					</Layout>
+				</Route>
+				<Route exact path ='/nutritionist/measurement-techniques'>
+					<Layout>
+						<MeasurementTechniques/>
 					</Layout>
 				</Route>
 
-				<Route exact path='/forums'>
-					<Layout>
-						<Forums />
+				<Route exact path='/speech-therapist/pre-triagem'>
+					<Layout> 
+						<PreScreening/>
 					</Layout>
 				</Route>
 
-				<Route exact path='/create-forum'>
+				<Route exact path='/nurse/anamnese'>
 					<Layout>
-						<CreateForum />
+						<Anamnese/>
 					</Layout>
 				</Route>
-
-				<Route exact path='/share'>
-					<Layout>
-						<ShareOptions />
-					</Layout>
-				</Route>
-
-				<Route exact path='/share/links'>
-					<Layout>
-						<ShareLinks />
-					</Layout>
-				</Route>
-
-				<Route exact path='/share/docs'>
-					<Layout>
-						<ShareDocs />
-					</Layout>
-				</Route>
-
-				<Route exact path='/share/class'>
-					<Layout>
-						<ShareClass />
-					</Layout>
-				</Route>
+				
 
 				<Route path='*'>
 					<Error404 />

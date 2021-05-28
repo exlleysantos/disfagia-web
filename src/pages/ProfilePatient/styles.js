@@ -39,8 +39,8 @@ export const BioInfos = styled.div`
 				font-weight: 500;
 
 				&:hover {
-					color: var(--green-forest);
-					background: var(--green-marine);
+					color: var(--purple);
+					background: var(--purple-opacity);
 				}
 			}
 		}

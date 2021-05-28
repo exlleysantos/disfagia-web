@@ -19,11 +19,11 @@ export const Container = styled.header`
 export const Logo = styled.span`
 	font-size: 22px;
 	font-weight: 600;
-	color: var(--navy);
+	color: var(--green-forest);
 
 	& > span {
 		text-transform: uppercase;
-		color: var(--navy);
+		color: var(--green-shrub);
 	}
 `;
 
@@ -40,7 +40,7 @@ export const ToggleMenu = styled.button`
 
 	&:hover {
 		& > svg {
-			color: var(--purple);
+			color: var(--green-shrub);
 		}
 	}
 
