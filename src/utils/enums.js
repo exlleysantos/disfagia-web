@@ -60,6 +60,12 @@ export const COMORBITIES = [
     {value : 18, label : 'Doença Refluxo Gastroesofágico'},
 ];
 
+export const NOTIFICATION_TYPES = [
+    {value : 1, label : 'Alerta'},
+    {value : 2, label : 'Lembrete'},
+    {value : 3, label : 'Notificação'},
+];
+
 export const SEX = [
 	{value : 'male', label : 'Masculino'},
 	{value : 'female', label : 'Feminino'}
@@ -138,5 +144,6 @@ export default {
 	PRE_SCREENING_ANSWERS, 
 	COMORBITIES,
 	MARITAL_STATUS,
-	EAT10
+	EAT10,
+	NOTIFICATION_TYPES
 };
