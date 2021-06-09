@@ -52,6 +52,7 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 
 		setShowOverlay(false);
 	}, [showMenu]);
+
 	if(user.specialty_id === 1)
 	return (
 		<>
@@ -61,10 +62,10 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 				</ToggleMenu>
 
 				<PicContainer>
-					<Avatar round='5px' name='Exlley Santos' />
+					<Avatar round='5px' name={user.name} />
 					<div>
 						<p>{user.name}</p>
-						<span>{user.type}</span>
+						<span>Nutricionista</span>
 					</div>
 				</PicContainer>
 
@@ -121,10 +122,10 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 				</ToggleMenu>
 
 				<PicContainer>
-					<Avatar round='5px' name='Exlley Santos' />
+					<Avatar round='5px' name={user.name} />
 					<div>
-						<p>Outro User</p>
-						<span>@Exlley Santos</span>
+						<p>{user.name}</p>
+						<span>Fonoaudiólogo(a)</span>
 					</div>
 				</PicContainer>
 
@@ -152,12 +153,6 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 							<Link to={{ pathname: '/speech-therapist/pre-triagem', state: { from: pathname } }}>
 								<Forum>Pré-Triagem</Forum>
 							</Link>
-							<Link to={{ pathname: '/speech-therapist/', state: { from: pathname } }}>
-								<Forum>Lorem Ipsum</Forum>
-							</Link>
-							<Link to={{ pathname: '/speech-therapist/', state: { from: pathname } }}>
-								<Forum>Lorem Ipsum</Forum>
-							</Link>
 						</Forums>
 					</Collapse>
 					<LinkItem onClick={() => handleLogout()}>
@@ -178,10 +173,10 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 				</ToggleMenu>
 
 				<PicContainer>
-					<Avatar round='5px' name='Exlley Santos' />
+					<Avatar round='5px' name={user.name} />
 					<div>
-						<p>Outro User</p>
-						<span>@Exlley Santos</span>
+						<p>{user.name}</p>
+						<span>Enfermeiro (a)</span>
 					</div>
 				</PicContainer>
 

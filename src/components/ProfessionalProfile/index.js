@@ -18,27 +18,8 @@ const UserProfile = ({ data }) => {
 						<Name>{data.name}</Name>
 						<Tag>{data.type === 'patient' ? 'Paciente' : 'Profissional de Saúde'}</Tag>
 					</div>
-
-					<div className='row'>
-						<Nickname>@{data.name}</Nickname>
-					</div>
-					<div className='row'>
-						<InstitutionName>Insituição</InstitutionName>
-					</div>
-					<div className='row'>
-						<Button icon={HiOutlineMail}>Mensagem</Button>
-						
-					</div>
 				</div>
 			</MainInfos>
-			<MobileFooter>
-				<div className='buttons'>
-					<Button icon={HiOutlineChatAlt}>Mensagem</Button>
-					<Button icon={HiOutlineMail} isGhost>
-						Email
-					</Button>
-				</div>
-			</MobileFooter>
 		</Box>
 	);
 };

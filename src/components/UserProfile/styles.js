@@ -84,3 +84,41 @@ export const InstitutionName = styled.span`
 	font-size: 13px;
 	color: var(--body-1);
 `;
+export const ModalContent = styled.div`
+	width: 500px;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+		rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	& > header {
+		width: 100%;
+		border-radius: 8px 8px 0 0;
+		padding: 12px;
+		border-bottom: 1px solid #ccc;
+		display: flex;
+		justify-content: space-between;
+		& > button {
+			background: none;
+			border: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 100%;
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+			&:hover {
+				background: #dedede;
+			}
+			& > svg {
+				font-size: 22px;
+				color: var(--body-1);
+			}
+		}
+	}
+	
+	& > div {
+		padding: 24px;
+	}
+
+`;

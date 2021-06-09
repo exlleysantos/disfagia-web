@@ -5,7 +5,7 @@ import { RadioContainer, RadioGroup } from './styles';
 const Input = ({ checked, label, ...rest }) => {
 	
 	return (
-		<RadioContainer {...rest}>
+		<RadioContainer checked={checked}{...rest}>
 			<div className='input'>
 				<div className='check'></div>
 			</div>
@@ -20,9 +20,9 @@ const Input = ({ checked, label, ...rest }) => {
 const Group = ({ title, size, children, ...rest }) => {
 	
 	return (
-		<RadioGroup size={size}>
+		<RadioGroup size={size} {...rest}>
 			<label>{title}</label>
-			<div>{children}</div>
+			<div className= {'radioOptions'}>{children}</div>
 		</RadioGroup>
 	);
 };

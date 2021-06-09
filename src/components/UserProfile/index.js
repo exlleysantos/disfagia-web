@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import Avatar from 'react-avatar';
+
+import Recdal from 'recdal';
 
 import Box from '../Box';
 import Button from '../Button';
-import { MainInfos, MobileFooter, Name, Nickname, Tag, InstitutionName } from './styles';
+import {Form, Input, Select, TextArea} from '../Form';
+import { MainInfos, MobileFooter, Name, Nickname, Tag, InstitutionName, ModalContent } from './styles';
 import { Link } from 'react-router-dom';
+//import { Option, Options } from './styles';
 
 import { HiOutlineChatAlt, HiOutlineMail, HiOutlineClipboardList } from 'react-icons/hi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
-import FaClipboardList from 'react-icons/fa';
+import { IoMdClose } from 'react-icons/io';
+
+import { NOTIFICATION_TYPES } from '../../utils/enums';
 
 const UserProfile = ({ userType, ...data }) => {
+	const modalRef = useRef(null);
+	const formRef = useRef(null);
+
+	const handleSubmit = useCallback();
+
 	if(userType==='patient'){
 	return (
 		<Box>
@@ -23,22 +34,39 @@ const UserProfile = ({ userType, ...data }) => {
 						<Name>{data.data.fullname}</Name>
 						<Tag>{userType=== 'patient' ? 'Paciente' : 'Profissional de Saúde'}</Tag>
 					</div>
-
-					<div className='row'>
-						<Nickname>@{data.data.fullname}</Nickname>
-					</div>
 					<div className='row'>
 						<Link to='patients/anamnese' >							
 							<Button icon={HiOutlineClipboardList}>Nova Anamnese</Button>
 						</Link>
 
-						<Link to='patients/notify' >							
-							<Button icon={IoMdNotificationsOutline}>Notificar</Button>
-						</Link>
-						
+						<Button onClick={() => modalRef.current.open()} icon={IoMdNotificationsOutline}>Notificar</Button>
 					</div>
 				</div>
 			</MainInfos>
+			<Recdal ref={modalRef}>
+				<ModalContent>
+					<header>
+						<h3>Notificar Paciente</h3>
+
+						<button onClick={() => modalRef.current.close()}>
+							<IoMdClose />
+						</button>
+					</header>
+
+					<div>
+						<Form style={{ width: '100%' }} ref={formRef} onSubmit={handleSubmit}>
+							<Input size={3} name='name' placeholder='Título' />
+							<Select
+								name='notification_type'
+								placeholder='Tipo'
+								options={NOTIFICATION_TYPES}
+							/>
+							<TextArea size={4} name='name' placeholder='Mensagem' />
+							<Button>Notificar</Button>
+						</Form>
+					</div>
+				</ModalContent>
+			</Recdal>
 		</Box>
 	);
 	}
@@ -53,27 +81,8 @@ const UserProfile = ({ userType, ...data }) => {
 						<Name>{data.fullname}</Name>
 						<Tag>{userType === 'patient' ? 'Paciente' : 'Profissional de Saúde'}</Tag>
 					</div>
-
-					<div className='row'>
-						<Nickname>@{data.fullname}</Nickname>
-					</div>
-					<div className='row'>
-						<InstitutionName>Insituição</InstitutionName>
-					</div>
-					<div className='row'>
-						<Button icon={HiOutlineMail}>Mensagem</Button>
-						
-					</div>
 				</div>
 			</MainInfos>
-			<MobileFooter>
-				<div className='buttons'>
-					<Button icon={HiOutlineChatAlt}>Mensagem</Button>
-					<Button icon={HiOutlineMail}>
-						Email
-					</Button>
-				</div>
-			</MobileFooter>
 		</Box>
 	);
 	}

@@ -12,7 +12,7 @@ const Header = ({ isMenuOpen, handleToggleMenu }) => {
 					{isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
 				</ToggleMenu>
 				<Logo>
-					Sistema de Monitoramento da 
+					Sistema de Monitoramento da Disfagia
 				</Logo>
 			</div>
 		</Container>
