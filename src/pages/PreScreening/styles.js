@@ -163,3 +163,11 @@ export const AvatarText = styled.div`
 		font-size: 14px;
 	}
 `;
+
+export const RadioWrapper = styled.div`
+	width : 100%;
+	
+	& .radioOptions {
+		flex-direction: row;
+	}
+`;

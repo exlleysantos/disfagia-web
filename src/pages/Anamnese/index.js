@@ -129,7 +129,6 @@ const Anamnese = () => {
 					<h3>Dados de Saúde</h3>
 						<section>
 							<Box>
-								<AvatarText>*Se doença não presente na lista, informar no campo OBSERVAÇÕES</AvatarText>
 									<Subjects>
 									<h3>Doenças Pré-existentes</h3>
 

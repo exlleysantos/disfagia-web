@@ -119,9 +119,7 @@ const Register = () => {
 						<h3>Observações</h3>
 
 						<Box>
-							
 							<TextArea name='tags' rows={5} placeholder='Observações' size={2} />
-
 						</Box>
 					</section>
 

@@ -5,8 +5,9 @@ import { H3 } from '../../components/Typography';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
 import { Form, Input, TextArea, MaskedInput, Radio, Checkbox} from '../../components/Form';
-import { Container, FormContainer, Title, AvatarText } from './styles';
+import { Container, FormContainer, Title, AvatarText, RadioWrapper} from './styles';
 import { PRE_SCREENING_ANSWERS, EAT10 } from '../../utils/enums'
+
 /*
 import { GrFormAdd } from 'react-icons/gr';
 import { CgTrashEmpty } from 'react-icons/cg';
@@ -23,6 +24,7 @@ const PreScreening = () => {
 	const formRef = useRef(null);
 
 	const [subjects, setSubjects] = useState([]);
+	const [eat10Question, setEat10Question] = useState(1)
 
 	const [teachingDegree, setTeachingDegree] = useState(undefined);
 /*
@@ -160,20 +162,339 @@ const PreScreening = () => {
 						<h3>Escala EAT-10</h3>
 						<section>
 							<AvatarText size={1}>
-								Selecione na escala de 1 a 5, na qual 1 é pra auseência e 5 
-								a presença do sintoma.
+								Selecione na escala de 0 a 4. 
 							</AvatarText>
 						
 							<Box>
-								{EAT10.map((QUEST) => (
-									<Radio.Group title={QUEST.question} size={2} >
-										<Radio.Input value='1' name='eat-10' label='1'/>
-										<Radio.Input value='2' name='eat-10' label='2'/>
-										<Radio.Input value='3' name='eat-10' label='3'/>
-										<Radio.Input value='4' name='eat-10' label='4'/>
-										<Radio.Input value='5' name='eat-10' label='5'/>
-									</Radio.Group>
-								))}
+								<Radio.Group key = {EAT10.index} title={EAT10[0].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[1].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[2].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[3].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[4].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[5].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[6].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[7].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[8].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
+
+								<Radio.Group key = {EAT10.index} title={EAT10[9].question} size={2} >
+									<Radio.Input 
+										checked={eat10Question === 0} 
+										onClick={() => setEat10Question(0)} 
+										name='eat-10' 
+										label='0'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 1} 
+										onClick={() => setEat10Question(1)} 
+										name='eat-10' 
+										label='1'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 2} 
+										onClick={() => setEat10Question(2)} 
+										name='eat-10' 
+										label='2'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 3} 
+										onClick={() => setEat10Question(3)} 
+										name='eat-10' 
+										label='3'
+									/>
+									<Radio.Input 
+										checked={eat10Question === 4} 
+										onClick={() => setEat10Question(4)} 
+										name='eat-10' 
+										label='4'
+									/>
+								</Radio.Group>
 							</Box>
 						</section>
 

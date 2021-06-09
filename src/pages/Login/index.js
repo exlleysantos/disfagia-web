@@ -111,8 +111,8 @@ const Login = () => {
 								name='specialty_id'
 								options={options}
 								onChange={({ value }) => setSpecialtyId(value)}
-								placeholder='Quem é você?'
-								size={2}
+								placeholder='Qual sua especialidade?'
+								size={4}
 					/>
 					<Button size={4}>Entrar</Button>
 				</Form>	

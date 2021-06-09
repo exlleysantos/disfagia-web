@@ -50,7 +50,7 @@ export const FormContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-	color: var(--blue);
+	color: var(--green-forest);
 	font-size: 30px;
 
 	& > span {
