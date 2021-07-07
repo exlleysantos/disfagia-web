@@ -92,31 +92,10 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 							<Forums>
 								<Link
 									to={{
-										pathname: '/nutritionist/pre-triagem',
-										state: { from: pathname },
-									}}>
-									<Forum>Pré-Triagem</Forum>
-								</Link>
-								<Link
-									to={{
 										pathname: 'nutritionist/subjective-nutritional-assessment',
 										state: { from: pathname },
 									}}>
 									<Forum>Avaliação Nutricional Subjetiva</Forum>
-								</Link>
-								<Link
-									to={{
-										pathname: 'nutritionist/eating-orientation',
-										state: { from: pathname },
-									}}>
-									<Forum>Orientação Nutricional</Forum>
-								</Link>
-								<Link
-									to={{
-										pathname: 'nutritionist/measurement-techniques',
-										state: { from: pathname },
-									}}>
-									<Forum>Técnicas de Aferição</Forum>
 								</Link>
 							</Forums>
 						</Collapse>
