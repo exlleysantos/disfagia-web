@@ -11,9 +11,7 @@ const Header = ({ isMenuOpen, handleToggleMenu }) => {
 				<ToggleMenu onClick={handleToggleMenu}>
 					{isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
 				</ToggleMenu>
-				<Logo>
-					Sistema de Monitoramento da Disfagia
-				</Logo>
+				<Logo>Protocolo de Monitoramento da Disfagia Pós-extubação.</Logo>
 			</div>
 		</Container>
 	);

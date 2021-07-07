@@ -18,9 +18,9 @@ import {
 import { CgProfile } from 'react-icons/cg';
 import { AiOutlineLogout, AiOutlineClose } from 'react-icons/ai';
 //import { HiOutlineChatAlt } from 'react-icons/hi';
-import { HiOutlineUserGroup } from 'react-icons/hi'
+import { HiOutlineUserGroup } from 'react-icons/hi';
 //import {AiFillReconciliation} from 'react-icons/ai'
-import { GiMedicalPackAlt } from 'react-icons/gi'
+import { GiMedicalPackAlt } from 'react-icons/gi';
 //import { FiShare2 } from 'react-icons/fi';
 import { BiChevronDown } from 'react-icons/bi';
 //import userEvent from '@testing-library/user-event';
@@ -37,11 +37,11 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 		return pathname.includes('medical') ? true : false;
 	});
 
-	function handleLogout(){
-        localStorage.clear();
-        history.push('/login');
+	function handleLogout() {
+		localStorage.clear();
+		history.push('/login');
 		history.go(0);
-    }
+	}
 
 	useEffect(() => {
 		if (showMenu) {
@@ -53,168 +53,189 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 		setShowOverlay(false);
 	}, [showMenu]);
 
-	if(user.specialty_id === 1)
-	return (
-		<>
-			<Container show={showMenu}>
-				<ToggleMenu onClick={handleCloseMenu}>
-					<AiOutlineClose />
-				</ToggleMenu>
+	if (user.specialty_id === 1)
+		return (
+			<>
+				<Container show={showMenu}>
+					<ToggleMenu onClick={handleCloseMenu}>
+						<AiOutlineClose />
+					</ToggleMenu>
 
-				<PicContainer>
-					<Avatar round='5px' name={user.name} />
-					<div>
-						<p>{user.name}</p>
-						<span>Nutricionista</span>
-					</div>
-				</PicContainer>
+					<PicContainer>
+						<Avatar round='5px' name={user.name} />
+						<div>
+							<p>{user.name}</p>
+							<span>Nutricionista</span>
+						</div>
+					</PicContainer>
 
-				<Menu>
-					<Link to={{ pathname: '/profile', state: { from: pathname } }}>
-						<LinkItem active={pathname.includes('profile')}>
-							<CgProfile /> Perfil
+					<Menu>
+						<Link to={{ pathname: '/profile', state: { from: pathname } }}>
+							<LinkItem active={pathname.includes('profile')}>
+								<CgProfile /> Perfil
+							</LinkItem>
+						</Link>
+
+						<Link to={{ pathname: '/patients', state: { from: pathname } }}>
+							<LinkItem active={pathname.includes('patient')}>
+								<HiOutlineUserGroup /> Meus Pacientes
+							</LinkItem>
+						</Link>
+						<LinkItem
+							onClick={() => setShowForums(!showForums)}
+							active={pathname.includes('medical')}>
+							<GiMedicalPackAlt /> Opções Médicas
+							<BiChevronDown className={`${showForums ? 'rotate' : ''} chevron`} />
 						</LinkItem>
-					</Link>
 
-					<Link to={{ pathname: '/patients', state: { from: pathname } }}>
-						<LinkItem active={pathname.includes('patient')}>
-							<HiOutlineUserGroup/> Meus Pacientes
+						<Collapse isOpened={showForums} theme={collapseTheme}>
+							<Forums>
+								<Link
+									to={{
+										pathname: '/nutritionist/pre-triagem',
+										state: { from: pathname },
+									}}>
+									<Forum>Pré-Triagem</Forum>
+								</Link>
+								<Link
+									to={{
+										pathname: 'nutritionist/subjective-nutritional-assessment',
+										state: { from: pathname },
+									}}>
+									<Forum>Avaliação Nutricional Subjetiva</Forum>
+								</Link>
+								<Link
+									to={{
+										pathname: 'nutritionist/eating-orientation',
+										state: { from: pathname },
+									}}>
+									<Forum>Orientação Nutricional</Forum>
+								</Link>
+								<Link
+									to={{
+										pathname: 'nutritionist/measurement-techniques',
+										state: { from: pathname },
+									}}>
+									<Forum>Técnicas de Aferição</Forum>
+								</Link>
+							</Forums>
+						</Collapse>
+						<LinkItem onClick={() => handleLogout()}>
+							<AiOutlineLogout /> Sair
 						</LinkItem>
-					</Link>
-					<LinkItem
-						onClick={() => setShowForums(!showForums)}
-						active={pathname.includes('medical')}>
-						<GiMedicalPackAlt /> Opções Médicas
-						<BiChevronDown className={`${showForums ? 'rotate' : ''} chevron`} />
-					</LinkItem>
+					</Menu>
+				</Container>
 
-					<Collapse isOpened={showForums} theme={collapseTheme}>
-						<Forums>
-							<Link to={{ pathname: '/nutritionist/pre-triagem', state: { from: pathname } }}>
-								<Forum>Pré-Triagem</Forum>
-							</Link>
-							<Link to={{ pathname: 'nutritionist/subjective-nutritional-assessment', state: { from: pathname } }}>
-								<Forum>Avaliação Nutricional Subjetiva</Forum>
-							</Link>
-							<Link to={{ pathname: 'nutritionist/eating-orientation', state: { from: pathname } }}>
-								<Forum>Orientação Nutricional</Forum>
-							</Link>
-							<Link to={{pathname: 'nutritionist/measurement-techniques', state: {from: pathname}}}>
-								<Forum>Técnicas de Aferição</Forum>
-							</Link>
-						</Forums>
-					</Collapse>
-					<LinkItem onClick={() => handleLogout()}>
-						<AiOutlineLogout /> Sair
-					</LinkItem>
-				</Menu>
-			</Container>
+				<Overlay visible={showOverlay} onClick={handleCloseMenu} />
+			</>
+		);
+	if (user.specialty_id === 2)
+		return (
+			<>
+				<Container show={showMenu}>
+					<ToggleMenu onClick={handleCloseMenu}>
+						<AiOutlineClose />
+					</ToggleMenu>
 
-			<Overlay visible={showOverlay} onClick={handleCloseMenu} />
-		</>
-	);
-	if(user.specialty_id === 2)
-	return (
-		<>
-			<Container show={showMenu}>
-				<ToggleMenu onClick={handleCloseMenu}>
-					<AiOutlineClose />
-				</ToggleMenu>
+					<PicContainer>
+						<Avatar round='5px' name={user.name} />
+						<div>
+							<p>{user.name}</p>
+							<span>Fonoaudiólogo(a)</span>
+						</div>
+					</PicContainer>
 
-				<PicContainer>
-					<Avatar round='5px' name={user.name} />
-					<div>
-						<p>{user.name}</p>
-						<span>Fonoaudiólogo(a)</span>
-					</div>
-				</PicContainer>
+					<Menu>
+						<Link to={{ pathname: '/profile', state: { from: pathname } }}>
+							<LinkItem active={pathname.includes('profile')}>
+								<CgProfile /> Perfil
+							</LinkItem>
+						</Link>
 
-				<Menu>
-					<Link to={{ pathname: '/profile', state: { from: pathname } }}>
-						<LinkItem active={pathname.includes('profile')}>
-							<CgProfile /> Perfil
+						<Link to={{ pathname: '/patients', state: { from: pathname } }}>
+							<LinkItem active={pathname.includes('educator')}>
+								<HiOutlineUserGroup /> Meus Pacientes
+							</LinkItem>
+						</Link>
+						<LinkItem
+							onClick={() => setShowForums(!showForums)}
+							active={pathname.includes('medical')}>
+							<GiMedicalPackAlt /> Opções Médicas
+							<BiChevronDown className={`${showForums ? 'rotate' : ''} chevron`} />
 						</LinkItem>
-					</Link>
 
-					<Link to={{ pathname: '/patients', state: { from: pathname } }}>
-						<LinkItem active={pathname.includes('educator')}>
-							<HiOutlineUserGroup/> Meus Pacientes
+						<Collapse isOpened={showForums} theme={collapseTheme}>
+							<Forums>
+								<Link
+									to={{
+										pathname: '/speech-therapist/pre-triagem',
+										state: { from: pathname },
+									}}>
+									<Forum>Pré-Triagem</Forum>
+								</Link>
+							</Forums>
+						</Collapse>
+						<LinkItem onClick={() => handleLogout()}>
+							<AiOutlineLogout /> Sair
 						</LinkItem>
-					</Link>
-					<LinkItem
-						onClick={() => setShowForums(!showForums)}
-						active={pathname.includes('medical')}>
-						<GiMedicalPackAlt /> Opções Médicas
-						<BiChevronDown className={`${showForums ? 'rotate' : ''} chevron`} />
-					</LinkItem>
+					</Menu>
+				</Container>
 
-					<Collapse isOpened={showForums} theme={collapseTheme}>
-						<Forums>
-							<Link to={{ pathname: '/speech-therapist/pre-triagem', state: { from: pathname } }}>
-								<Forum>Pré-Triagem</Forum>
-							</Link>
-						</Forums>
-					</Collapse>
-					<LinkItem onClick={() => handleLogout()}>
-						<AiOutlineLogout /> Sair
-					</LinkItem>
-				</Menu>
-			</Container>
+				<Overlay visible={showOverlay} onClick={handleCloseMenu} />
+			</>
+		);
+	if (user.specialty_id === 3)
+		return (
+			<>
+				<Container show={showMenu}>
+					<ToggleMenu onClick={handleCloseMenu}>
+						<AiOutlineClose />
+					</ToggleMenu>
 
-			<Overlay visible={showOverlay} onClick={handleCloseMenu} />
-		</>
-	);
-	if(user.specialty_id === 3)
-	return (
-		<>
-			<Container show={showMenu}>
-				<ToggleMenu onClick={handleCloseMenu}>
-					<AiOutlineClose />
-				</ToggleMenu>
+					<PicContainer>
+						<Avatar round='5px' name={user.name} />
+						<div>
+							<p>{user.name}</p>
+							<span>Enfermeiro (a)</span>
+						</div>
+					</PicContainer>
 
-				<PicContainer>
-					<Avatar round='5px' name={user.name} />
-					<div>
-						<p>{user.name}</p>
-						<span>Enfermeiro (a)</span>
-					</div>
-				</PicContainer>
+					<Menu>
+						<Link to={{ pathname: '/profile', state: { from: pathname } }}>
+							<LinkItem active={pathname.includes('profile')}>
+								<CgProfile /> Perfil
+							</LinkItem>
+						</Link>
 
-				<Menu>
-					<Link to={{ pathname: '/profile', state: { from: pathname } }}>
-						<LinkItem active={pathname.includes('profile')}>
-							<CgProfile /> Perfil
+						<Link to={{ pathname: '/patients', state: { from: pathname } }}>
+							<LinkItem active={pathname.includes('educator')}>
+								<HiOutlineUserGroup /> Meus Pacientes
+							</LinkItem>
+						</Link>
+						<LinkItem
+							onClick={() => setShowForums(!showForums)}
+							active={pathname.includes('medical')}>
+							<GiMedicalPackAlt /> Opções Médicas
+							<BiChevronDown className={`${showForums ? 'rotate' : ''} chevron`} />
 						</LinkItem>
-					</Link>
 
-					<Link to={{ pathname: '/patients', state: { from: pathname } }}>
-						<LinkItem active={pathname.includes('educator')}>
-							<HiOutlineUserGroup/> Meus Pacientes
+						<Collapse isOpened={showForums} theme={collapseTheme}>
+							<Forums>
+								<Link
+									to={{ pathname: '/nurse/anamnese', state: { from: pathname } }}>
+									<Forum>Anamnese</Forum>
+								</Link>
+							</Forums>
+						</Collapse>
+						<LinkItem onClick={() => handleLogout()}>
+							<AiOutlineLogout /> Sair
 						</LinkItem>
-					</Link>
-					<LinkItem
-						onClick={() => setShowForums(!showForums)}
-						active={pathname.includes('medical')}>
-						<GiMedicalPackAlt /> Opções Médicas
-						<BiChevronDown className={`${showForums ? 'rotate' : ''} chevron`} />
-					</LinkItem>
+					</Menu>
+				</Container>
 
-					<Collapse isOpened={showForums} theme={collapseTheme}>
-						<Forums>
-							<Link to={{ pathname: '/nurse/anamnese', state: { from: pathname } }}>
-								<Forum>Anamnese</Forum>
-							</Link>
-						</Forums>
-					</Collapse>
-					<LinkItem onClick={() => handleLogout()}>
-						<AiOutlineLogout /> Sair
-					</LinkItem>
-				</Menu>
-			</Container>
-
-			<Overlay visible={showOverlay} onClick={handleCloseMenu} />
-		</>
-	);
+				<Overlay visible={showOverlay} onClick={handleCloseMenu} />
+			</>
+		);
 };
 
 export default Navigation;

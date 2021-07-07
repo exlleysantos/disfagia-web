@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState, useRef } from 'react';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import { Form, Input, Select } from '../../components/Form';
@@ -14,7 +14,7 @@ const options = [
 	{ value: 1, label: 'Nutricionista' },
 	{ value: 2, label: 'Fonoaudiologo (a)' },
 	{ value: 3, label: 'Enfermeiro (a)' },
-	{ value: 4, label: 'Paciente'}
+	{ value: 4, label: 'Paciente' },
 ];
 
 const Login = () => {
@@ -58,23 +58,22 @@ const Login = () => {
 
 	const handleLogin = async (e) => {
 		try {
-			if (e && e.preventDefault) e.preventDefault()
+			if (e && e.preventDefault) e.preventDefault();
 
-			console.log("Evento:", e);
+			console.log('Evento:', e);
 
 			const payload = { email, password };
 			const validationSchema = Yup.object().shape({
 				email: Yup.string().required('Informe o nome de usuário'),
 				password: Yup.string().required('Informe uma senha'),
 			});
-		
+
 			await validationSchema.validate(payload);
 			formRef.current.setErrors({});
-			
+
 			const { data } = await api.post('/login', payload);
 			data.healthcareProfessional.specialty_id = specialty_id;
 			signIn(data.healthcareProfessional, data.token.token, true);
-
 		} catch (error) {
 			if (error instanceof Yup.ValidationError) {
 				return alert('Preencha todos os campos corretamente');
@@ -95,27 +94,39 @@ const Login = () => {
 	return (
 		<Container>
 			<FormContainer>
-				<Title>
-					Smia
-				</Title>
-				<SubTitle>Sistema de Monitoramento da Disfagia</SubTitle>
+				<Title>Smia</Title>
+				<SubTitle>Protocolo de Monitoramento da Disfagia Pós-extubação</SubTitle>
 
 				<Welcome>
 					<p>Bem vind@ ao Smia</p>
 				</Welcome>
 
-				<Form ref= {formRef} onSubmit={handleLogin}>
-					<Input name='email' placeholder='Nome de Usuário'type= 'email' size={4} value={email} onChange={(e) => setEmail(e.target.value)} />
-					<Input name='password' placeholder='Senha' type='password' size={4} value={password} onChange={(e) => setPassword(e.target.value)}/>
+				<Form ref={formRef} onSubmit={handleLogin}>
+					<Input
+						name='email'
+						placeholder='Nome de Usuário'
+						type='email'
+						size={4}
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+					<Input
+						name='password'
+						placeholder='Senha'
+						type='password'
+						size={4}
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+					/>
 					<Select
-								name='specialty_id'
-								options={options}
-								onChange={({ value }) => setSpecialtyId(value)}
-								placeholder='Qual sua especialidade?'
-								size={4}
+						name='specialty_id'
+						options={options}
+						onChange={({ value }) => setSpecialtyId(value)}
+						placeholder='Qual sua especialidade?'
+						size={4}
 					/>
 					<Button size={4}>Entrar</Button>
-				</Form>	
+				</Form>
 			</FormContainer>
 		</Container>
 	);

@@ -38,8 +38,9 @@ const AuthProvider = ({ children }) => {
 
 		window.location.href = '/';
 	};
-
 	return (
+		//subbstituir  true por user
+
 		<AuthContext.Provider value={{ isLogged: user, user, signIn, signOut, auth }}>
 			{children}
 		</AuthContext.Provider>
