@@ -4,18 +4,10 @@ import * as Yup from 'yup';
 import { H1 } from '../../components/Typography';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
-import { Form, Input, Select, TextArea, FileInput, MaskedInput } from '../../components/Form';
-import { Container, FormContainer, Title, Subjects, Subject, AvatarText } from './styles';
+import { Form, Input, TextArea, FileInput, MaskedInput } from '../../components/Form';
+import { Container, FormContainer, Title, AvatarText } from './styles';
 
-import { GrFormAdd } from 'react-icons/gr';
-import { CgTrashEmpty } from 'react-icons/cg';
 import { useCallback } from 'react';
-
-const options = [
-	{ value: 1, label: 'Ensino fundamental' },
-	{ value: 2, label: 'Ensino médio' },
-	{ value: 3, label: 'Ensino superior' },
-];
 
 const Register = () => {
 	const formRef = useRef(null);
@@ -23,7 +15,7 @@ const Register = () => {
 	const [subjects, setSubjects] = useState([]);
 	const [teachingDegree, setTeachingDegree] = useState(undefined);
 
-	const handleAddSubject = useCallback(() => {
+	/*const handleAddSubject = useCallback(() => {
 		const subject = formRef.current.getFieldValue('subjectName');
 
 		if (!subject) {
@@ -36,7 +28,7 @@ const Register = () => {
 
 	const handleRemoveSubject = useCallback((removedIndex) => {
 		return setSubjects((subjects) => subjects.filter((_, index) => index !== removedIndex));
-	}, []);
+	}, []);*/
 
 	const handleSubmit = useCallback(
 		async (formData) => {

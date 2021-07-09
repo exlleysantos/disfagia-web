@@ -2,10 +2,7 @@ import React from 'react';
 import Avatar from 'react-avatar';
 
 import Box from '../Box';
-import Button from '../Button';
-import { MainInfos, MobileFooter, Name, Nickname, Tag, InstitutionName } from './styles';
-
-import { HiOutlineChatAlt, HiOutlineMail } from 'react-icons/hi';
+import { MainInfos, Name, Tag } from './styles';
 
 const UserProfile = ({ data }) => {
 	return (

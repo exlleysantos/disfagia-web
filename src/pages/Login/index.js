@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, useState, useRef } from 'react';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import { Form, Input, Select } from '../../components/Form';
@@ -27,10 +26,6 @@ const Login = () => {
 	const [specialty_id, setSpecialtyId] = useState('');
 
 	useEffect(() => {
-		/** useEffect usado para verificar se o usuário já esta autenticado.
-		 * caso sim, o redireciona para outra página;
-		 */
-
 		const isUserAuthenticated = async () => {
 			try {
 				const authToken = localStorage.getItem('@token');

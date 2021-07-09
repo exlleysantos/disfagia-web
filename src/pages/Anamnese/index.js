@@ -4,24 +4,13 @@ import * as Yup from 'yup';
 //import { H1, H3 } from '../../components/Typography';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
-import {
-	Form,
-	Input,
-	Select,
-	TextArea,
-	FileInput,
-	MaskedInput,
-	Radio,
-	Checkbox,
-} from '../../components/Form';
-import { Container, FormContainer, Title, Subjects, Subject, AvatarText } from './styles';
+import { Form, Input, Select, MaskedInput } from '../../components/Form';
+import { Container, FormContainer, Title, Subjects, Subject } from './styles';
 import { COMORBITIES, SEX, MARITAL_STATUS } from '../../utils/enums';
 
 import { GrFormAdd } from 'react-icons/gr';
 import { CgTrashEmpty } from 'react-icons/cg';
 import { useCallback } from 'react';
-
-import api from '../../services/api';
 
 const Anamnese = () => {
 	const formRef = useRef(null);

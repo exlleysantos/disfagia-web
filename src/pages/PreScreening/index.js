@@ -5,20 +5,10 @@ import { H3 } from '../../components/Typography';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
 import { Form, Input, TextArea, MaskedInput, Radio, Checkbox } from '../../components/Form';
-import { Container, FormContainer, Title, AvatarText, RadioWrapper } from './styles';
+import { Container, FormContainer, Title, AvatarText } from './styles';
 import { PRE_SCREENING_ANSWERS, EAT10 } from '../../utils/enums';
 
-/*
-import { GrFormAdd } from 'react-icons/gr';
-import { CgTrashEmpty } from 'react-icons/cg';
-*/
 import { useCallback } from 'react';
-
-const options = [
-	{ value: 1, label: 'Permanente' },
-	{ value: 2, label: 'Prótese' },
-	{ value: 3, label: 'Ausente' },
-];
 
 const PreScreening = () => {
 	const formRef = useRef(null);
@@ -35,22 +25,7 @@ const PreScreening = () => {
 	const [eat10Question9, setEat10Question9] = useState(0);
 	const [eat10Question10, setEat10Question10] = useState(0);
 	const [teachingDegree, setTeachingDegree] = useState(undefined);
-	/*
-	const handleAddSubject = useCallback(() => {
-		const subject = formRef.current.getFieldValue('subjectName');
 
-		if (!subject) {
-			return formRef.current.setFieldError('subjectName', 'Informe o nome da disciplina');
-		}
-
-		setSubjects((subjects) => [...subjects, subject]);
-		formRef.current.setFieldValue('subjectName', '');
-	}, []);
-
-	const handleRemoveSubject = useCallback((removedIndex) => {
-		return setSubjects((subjects) => subjects.filter((_, index) => index !== removedIndex));
-	}, []);
-*/
 	const handleSubmit = useCallback(
 		async (formData) => {
 			try {

@@ -2,10 +2,8 @@ import React, { useRef } from 'react';
 import Recdal from 'recdal';
 import { Link } from 'react-router-dom';
 
-import Box from '../../components/Box';
-import { H1 } from '../../components/Typography';
 import Button from '../../components/Button';
-import { Container, ModalContent, Option, Options, Feed, BoxContent, Tag } from './styles';
+import { ModalContent, Option, Options } from './styles';
 
 import { AiOutlineLink } from 'react-icons/ai';
 import { CgFileDocument } from 'react-icons/cg';
@@ -14,8 +12,8 @@ import { IoMdClose } from 'react-icons/io';
 
 const Notify = () => {
 	const modalRef = useRef(null);
-	
-return (
+
+	return (
 		<>
 			<Button onClick={() => modalRef.current.open()}>Novo Compartilhamento</Button>
 			<Recdal ref={modalRef}>

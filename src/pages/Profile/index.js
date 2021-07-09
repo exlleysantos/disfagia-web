@@ -8,7 +8,7 @@ import { Container, BioInfos } from './styles';
 const Profile = () => {
 	const userData = localStorage.getItem('@USER');
 	const user = JSON.parse(userData);
-	console.log(user);
+
 	return (
 		<Container>
 			<Box>

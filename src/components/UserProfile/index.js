@@ -8,7 +8,6 @@ import Button from '../Button';
 import { Form, Input, Select, TextArea } from '../Form';
 import { MainInfos, Name, Tag, ModalContent } from './styles';
 import { Link } from 'react-router-dom';
-//import { Option, Options } from './styles';
 
 import { HiOutlineClipboardList } from 'react-icons/hi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
