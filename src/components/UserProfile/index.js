@@ -6,19 +6,11 @@ import Recdal from 'recdal';
 import Box from '../Box';
 import Button from '../Button';
 import { Form, Input, Select, TextArea } from '../Form';
-import {
-	MainInfos,
-	MobileFooter,
-	Name,
-	Nickname,
-	Tag,
-	InstitutionName,
-	ModalContent,
-} from './styles';
+import { MainInfos, Name, Tag, ModalContent } from './styles';
 import { Link } from 'react-router-dom';
 //import { Option, Options } from './styles';
 
-import { HiOutlineChatAlt, HiOutlineMail, HiOutlineClipboardList } from 'react-icons/hi';
+import { HiOutlineClipboardList } from 'react-icons/hi';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { IoMdClose } from 'react-icons/io';
 

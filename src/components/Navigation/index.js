@@ -17,13 +17,9 @@ import {
 
 import { CgProfile } from 'react-icons/cg';
 import { AiOutlineLogout, AiOutlineClose } from 'react-icons/ai';
-//import { HiOutlineChatAlt } from 'react-icons/hi';
 import { HiOutlineUserGroup } from 'react-icons/hi';
-//import {AiFillReconciliation} from 'react-icons/ai'
 import { GiMedicalPackAlt } from 'react-icons/gi';
-//import { FiShare2 } from 'react-icons/fi';
 import { BiChevronDown } from 'react-icons/bi';
-//import userEvent from '@testing-library/user-event';
 
 const Navigation = ({ showMenu, handleCloseMenu }) => {
 	const userData = localStorage.getItem('@USER');
@@ -53,7 +49,7 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 		setShowOverlay(false);
 	}, [showMenu]);
 
-	if (user.specialty_id === 1)
+	if (user.specialty_id === 1) {
 		return (
 			<>
 				<Container show={showMenu}>
@@ -108,7 +104,8 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 				<Overlay visible={showOverlay} onClick={handleCloseMenu} />
 			</>
 		);
-	if (user.specialty_id === 2)
+	}
+	if (user.specialty_id === 2) {
 		return (
 			<>
 				<Container show={showMenu}>
@@ -163,7 +160,8 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 				<Overlay visible={showOverlay} onClick={handleCloseMenu} />
 			</>
 		);
-	if (user.specialty_id === 3)
+	}
+	if (user.specialty_id === 3) {
 		return (
 			<>
 				<Container show={showMenu}>
@@ -215,6 +213,7 @@ const Navigation = ({ showMenu, handleCloseMenu }) => {
 				<Overlay visible={showOverlay} onClick={handleCloseMenu} />
 			</>
 		);
+	}
 };
 
 export default Navigation;
