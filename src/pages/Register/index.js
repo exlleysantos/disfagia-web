@@ -88,9 +88,7 @@ const Register = () => {
 
 	return (
 		<Container>
-			<Title onClick={() => console.log(teachingDegree)}>
-				Pré-triagem de Paciente
-			</Title>
+			<Title onClick={() => console.log(teachingDegree)}>Pré-triagem de Paciente</Title>
 			<FormContainer>
 				<H1>Cadastro</H1>
 
@@ -106,12 +104,7 @@ const Register = () => {
 								mask='999.999.999-99'
 								size={1}
 							/>
-							<Input
-								name='birthDate'
-								placeholder='Nascimento'
-								type='date'
-								size={1}
-							/>
+							<Input name='birthDate' placeholder='Nascimento' type='date' size={1} />
 						</Box>
 					</section>
 
@@ -140,7 +133,9 @@ const Register = () => {
 						</Box>
 					</section>
 
-					<Button size={4}>Cadastrar</Button>
+					<Button disabled={true} size={4}>
+						Cadastrar
+					</Button>
 				</Form>
 			</FormContainer>
 		</Container>

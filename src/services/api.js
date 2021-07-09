@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getToken } from './auth';
 
-const api = axios.create({ baseURL: 'https://ff781135b641.ngrok.io' });
+const api = axios.create({ baseURL: 'https://api-disfagia.herokuapp.com' });
 
 api.interceptors.request.use((config) => {
 	const token = getToken();

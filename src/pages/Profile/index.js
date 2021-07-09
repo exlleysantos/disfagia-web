@@ -3,13 +3,12 @@ import React, { useState } from 'react';
 import ProfessionalProfile from '../../components/ProfessionalProfile';
 import Box from '../../components/Box';
 import { Container, BioInfos } from './styles';
-
 // import api from '../../services/api';
 
 const Profile = () => {
 	const userData = localStorage.getItem('@USER');
 	const user = JSON.parse(userData);
-	console.log(user)
+	console.log(user);
 	return (
 		<Container>
 			<Box>
@@ -23,7 +22,11 @@ const Profile = () => {
 							<h3>Especialização</h3>
 						</header>
 						<p>
-							{(user.specialty_id === 1) ? "Nutricionista" : "Fonoaudiologo"}
+							{user.specialty_id === 1
+								? 'Nutricionista'
+								: user.specialty_id === 2
+								? 'Fonoaudiologo'
+								: 'Enfermeiro'}
 						</p>
 					</div>
 
